@@ -285,10 +285,10 @@ static const char PROGMEM INDEX_HTML[] = R"rawliteral(
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Serveillance Robot</title>
         <style>
-            .button {background-color: #b55100;border: none;border-radius: 4px;color: white;padding: 10px 25px;text-align: center;font-size: 16px;margin: 4px 2px;cursor: pointer;}
+            .button {background-color: #0097b5;border: none;border-radius: 4px;color: white;padding: 10px 25px;text-align: center;font-size: 16px;margin: 4px 2px;cursor: pointer;}
             .slider {appearance: none;width: 70%;height: 15px;border-radius: 10px;background: #d3d3d3;outline: none;}
-            .slider::-webkit-slider-thumb {appearance: none;appearance: none;width: 30px;height: 30px;border-radius: 50%;background: #b55100;}
-            .label {color: #b55100;font-size: 18px;}
+            .slider::-webkit-slider-thumb {appearance: none;appearance: none;width: 30px;height: 30px;border-radius: 50%;background: #0097b5;}
+            .label {color: #0097b5;font-size: 18px;}
         </style>
     </head>
     <body>
