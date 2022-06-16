@@ -8,8 +8,11 @@
 #include "soc/soc.h"
 #include "soc/rtc_cntl_reg.h"
 #include <WiFi.h>
+#include "sdkconfig.h"
 
 #define CAMERA_MODEL_AI_THINKER
+
+#define CONFIG_HTTPD_MAX_REQ_HDR_LEN 2048
 
 #define PWDN_GPIO_NUM     32
 #define RESET_GPIO_NUM    -1
@@ -27,6 +30,7 @@
 #define VSYNC_GPIO_NUM    25
 #define HREF_GPIO_NUM     23
 #define PCLK_GPIO_NUM     22
+
 
 /* Wifi Crdentials */ /* Replace your SSID and Password */
 const char* ssid = "WIFI ODC";
@@ -186,10 +190,13 @@ static esp_err_t cmd_handler(httpd_req_t *req)
     }
     else if (val == 2) {
       Serial.println("Turn Left");
-      ledcWrite(4, speed);
-      ledcWrite(5, 0);
-      ledcWrite(6, speed);
-      ledcWrite(7, 0);
+
+      ledcWrite(4, 0);
+      ledcWrite(5, speed);
+      ledcWrite(6, 0);
+      ledcWrite(7, speed);
+
+      
     }
     else if (val == 3) {
       Serial.println("Stop");
@@ -200,10 +207,11 @@ static esp_err_t cmd_handler(httpd_req_t *req)
     }
     else if (val == 4) {
       Serial.println("Turn Right");
-      ledcWrite(4, 0);
-      ledcWrite(5, speed);
-      ledcWrite(6, 0);
-      ledcWrite(7, speed);
+      
+      ledcWrite(4, speed);
+      ledcWrite(5, 0);
+      ledcWrite(6, speed);
+      ledcWrite(7, 0);
 
     }
     else if (val == 5) {
@@ -285,10 +293,10 @@ static const char PROGMEM INDEX_HTML[] = R"rawliteral(
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Serveillance Robot</title>
         <style>
-            .button {background-color: #0097b5;border: none;border-radius: 4px;color: white;padding: 10px 25px;text-align: center;font-size: 16px;margin: 4px 2px;cursor: pointer;}
-            .slider {appearance: none;width: 70%;height: 15px;border-radius: 10px;background: #d3d3d3;outline: none;}
-            .slider::-webkit-slider-thumb {appearance: none;appearance: none;width: 30px;height: 30px;border-radius: 50%;background: #0097b5;}
-            .label {color: #0097b5;font-size: 18px;}
+            .button {background-color: #ed5f07;border: none;border-radius: 4px;color: white;padding: 10px 25px;text-align: center;font-size: 16px;margin: 4px 2px;cursor: pointer;}
+            .slider {appearance: none;width: 70%;height: 15px;border-radius: 10px;background: #ed5f07;outline: none;}
+            .slider::-webkit-slider-thumb {appearance: none;appearance: none;width: 30px;height: 30px;border-radius: 50%;background: #050505;}
+            .label {color: #ed5f07;font-size: 18px;}
         </style>
     </head>
     <body>
